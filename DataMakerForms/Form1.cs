@@ -1,14 +1,14 @@
-﻿using Statistics;
+﻿using FunctionParser;
+using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using OxyPlot.WindowsForms;
+using Statistics;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using OxyPlot;
-using OxyPlot.WindowsForms;
-using OxyPlot.Series;
-using OxyPlot.Axes;
-using System.Drawing;
-using FunctionParser;
 
 namespace DataMakerForms
 {
@@ -48,7 +48,7 @@ namespace DataMakerForms
             if(InputValuesTextbox.Text == "")
                 InputValuesTextbox.Enabled = false;
             InputValuesTextbox.ReadOnly = true;
-            GenerateInputGroupbox.Visible=false;
+            GenerateInputGroupbox.Visible = false;
 
             switch(InputTypeCombobox.SelectedIndex)
             {
@@ -144,7 +144,7 @@ namespace DataMakerForms
         private void PlotButton_Click(object sender, EventArgs e)
         {
             double[] yvalues = Array.ConvertAll(OutputValuesTextbox.Text.Split('\n', StringSplitOptions.RemoveEmptyEntries), double.Parse);
-            double[] xvalues= Array.ConvertAll(InputValuesTextbox.Text.Split('\n', StringSplitOptions.RemoveEmptyEntries), double.Parse);
+            double[] xvalues = Array.ConvertAll(InputValuesTextbox.Text.Split('\n', StringSplitOptions.RemoveEmptyEntries), double.Parse);
             double min = Math.Min(yvalues.Min(), xvalues.Min());
             double max = Math.Max(yvalues.Max(), xvalues.Max());
             this.Controls.Add(pv);
@@ -166,17 +166,15 @@ namespace DataMakerForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            
             pv.Location = new Point(445, 25);
             pv.Size = new Size(675, 675);
-            
+
         }
 
         private string GenerateByDistribusion(double[] input)
         {
             Distribusion d = SetDistribusion();
-            
+
             if(FunctionCheckBox.Checked)
             {
                 string equation = FunctionTextbox.Text;
