@@ -11,11 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Statistics\Statistics\Statistics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="FunctionParser">
       <HintPath>bin\Debug\net5.0-windows\FunctionParser.dll</HintPath>
-    </Reference>
-    <Reference Include="Statistics">
-      <HintPath>bin\Debug\net5.0-windows\Statistics.dll</HintPath>
     </Reference>
   </ItemGroup>
 

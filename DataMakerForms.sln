@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataMakerForms", "DataMakerForms\DataMakerForms.csproj", "{536F1F52-E0A3-4CBF-BFC0-1E1AAA551EBF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statistics", "..\Statistics\Statistics\Statistics.csproj", "{2274E86A-E864-4ED0-A08D-F78AAC27FAF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{536F1F52-E0A3-4CBF-BFC0-1E1AAA551EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{536F1F52-E0A3-4CBF-BFC0-1E1AAA551EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{536F1F52-E0A3-4CBF-BFC0-1E1AAA551EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2274E86A-E864-4ED0-A08D-F78AAC27FAF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2274E86A-E864-4ED0-A08D-F78AAC27FAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2274E86A-E864-4ED0-A08D-F78AAC27FAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2274E86A-E864-4ED0-A08D-F78AAC27FAF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

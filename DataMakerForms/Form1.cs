@@ -131,11 +131,6 @@ namespace DataMakerForms
             }
         }
 
-        private void FunctionCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            FunctionPanel.Visible = FunctionCheckBox.Checked;
-        }
-
         private void DomainCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             DomainOutputGroupbox.Visible = DomainCheckbox.Checked;
@@ -174,23 +169,23 @@ namespace DataMakerForms
         private string GenerateByDistribusion(double[] input)
         {
             Distribusion d = SetDistribusion();
-
-            if(FunctionCheckBox.Checked)
+            string equation = FunctionTextbox.Text;
+            var variables = new string[] { "x" };
+            if(Expression.IsExpression(equation, variables))
             {
-                string equation = FunctionTextbox.Text;
-                var variables = new string[] { "x" };
-                if(Expression.IsExpression(equation, variables))
+                Expression expression = new Expression(equation, variables, null);
+                double[] value = new double[1];
+                for(int i = 0; i < input.Length; i++)
                 {
-                    Expression expression = new Expression(equation, variables, null);
-                    double[] value = new double[1];
-                    for(int i = 0; i < input.Length; i++)
-                    {
-                        value[0] = input[i];
-                        input[i] = expression.CalculateValue(value);
-                    }
+                    value[0] = input[i];
+                    input[i] = expression.CalculateValue(value);
                 }
             }
-            return string.Join("\n", Statistics.Model.GenerateByDistribusion(input, d));
+            if(autocorCheckbox.Checked)
+                return string.Join("\n", Statistics.Model.GenerateWithAoutocor(input, double.Parse(autocorTextbox.Text), d));
+            else
+                return string.Join("\n", Statistics.Model.GenerateByDistribusion(input, d));
+
         }
 
         private string GenerateByP(double[] inputValues)
@@ -250,6 +245,11 @@ namespace DataMakerForms
                 break;
             }
             return distribusion;
+        }
+
+        private void autocorCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            autocorPannel.Visible = autocorCheckbox.Checked;
         }
     }
 }

@@ -60,7 +60,6 @@ namespace DataMakerForms
             this.OutputMinTextbox = new System.Windows.Forms.TextBox();
             this.OutputMaxLabel = new System.Windows.Forms.Label();
             this.OutputMinLabel = new System.Windows.Forms.Label();
-            this.FunctionCheckBox = new System.Windows.Forms.CheckBox();
             this.PlotButton = new System.Windows.Forms.Button();
             this.SgnCorrCheckbox = new System.Windows.Forms.CheckBox();
             this.DomainCheckbox = new System.Windows.Forms.CheckBox();
@@ -69,6 +68,10 @@ namespace DataMakerForms
             this.FunctionLabel = new System.Windows.Forms.Label();
             this.FunctionPanel = new System.Windows.Forms.Panel();
             this.DistribusionPanel = new System.Windows.Forms.Panel();
+            this.autocorPannel = new System.Windows.Forms.Panel();
+            this.autocorLabel = new System.Windows.Forms.Label();
+            this.autocorTextbox = new System.Windows.Forms.TextBox();
+            this.autocorCheckbox = new System.Windows.Forms.CheckBox();
             this.DistribusionGroupBox.SuspendLayout();
             this.PirsonGroupbox.SuspendLayout();
             this.GenerateInputGroupbox.SuspendLayout();
@@ -76,6 +79,7 @@ namespace DataMakerForms
             this.AutocorPanel.SuspendLayout();
             this.FunctionPanel.SuspendLayout();
             this.DistribusionPanel.SuspendLayout();
+            this.autocorPannel.SuspendLayout();
             this.SuspendLayout();
             // 
             // DistribusionTypeBox
@@ -223,22 +227,22 @@ namespace DataMakerForms
             // OutputValuesTextbox
             // 
             this.OutputValuesTextbox.Enabled = false;
-            this.OutputValuesTextbox.Location = new System.Drawing.Point(225, 309);
+            this.OutputValuesTextbox.Location = new System.Drawing.Point(214, 336);
             this.OutputValuesTextbox.Multiline = true;
             this.OutputValuesTextbox.Name = "OutputValuesTextbox";
             this.OutputValuesTextbox.ReadOnly = true;
             this.OutputValuesTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.OutputValuesTextbox.Size = new System.Drawing.Size(207, 347);
+            this.OutputValuesTextbox.Size = new System.Drawing.Size(207, 336);
             this.OutputValuesTextbox.TabIndex = 11;
             // 
             // InputValuesTextbox
             // 
             this.InputValuesTextbox.Enabled = false;
-            this.InputValuesTextbox.Location = new System.Drawing.Point(12, 309);
+            this.InputValuesTextbox.Location = new System.Drawing.Point(1, 336);
             this.InputValuesTextbox.Multiline = true;
             this.InputValuesTextbox.Name = "InputValuesTextbox";
             this.InputValuesTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.InputValuesTextbox.Size = new System.Drawing.Size(207, 347);
+            this.InputValuesTextbox.Size = new System.Drawing.Size(207, 336);
             this.InputValuesTextbox.TabIndex = 12;
             // 
             // GenerateInputGroupbox
@@ -250,9 +254,9 @@ namespace DataMakerForms
             this.GenerateInputGroupbox.Controls.Add(this.InputStepLabel);
             this.GenerateInputGroupbox.Controls.Add(this.InputMaxLabel);
             this.GenerateInputGroupbox.Controls.Add(this.InputMinLabel);
-            this.GenerateInputGroupbox.Location = new System.Drawing.Point(445, 25);
+            this.GenerateInputGroupbox.Location = new System.Drawing.Point(445, 29);
             this.GenerateInputGroupbox.Name = "GenerateInputGroupbox";
-            this.GenerateInputGroupbox.Size = new System.Drawing.Size(360, 178);
+            this.GenerateInputGroupbox.Size = new System.Drawing.Size(237, 160);
             this.GenerateInputGroupbox.TabIndex = 13;
             this.GenerateInputGroupbox.TabStop = false;
             this.GenerateInputGroupbox.Text = "Входные данные";
@@ -260,28 +264,28 @@ namespace DataMakerForms
             // 
             // InputStepTextBox
             // 
-            this.InputStepTextBox.Location = new System.Drawing.Point(122, 104);
+            this.InputStepTextBox.Location = new System.Drawing.Point(90, 86);
             this.InputStepTextBox.Name = "InputStepTextBox";
             this.InputStepTextBox.Size = new System.Drawing.Size(125, 27);
             this.InputStepTextBox.TabIndex = 6;
             // 
             // InputMaxTextBox
             // 
-            this.InputMaxTextBox.Location = new System.Drawing.Point(122, 71);
+            this.InputMaxTextBox.Location = new System.Drawing.Point(90, 53);
             this.InputMaxTextBox.Name = "InputMaxTextBox";
             this.InputMaxTextBox.Size = new System.Drawing.Size(125, 27);
             this.InputMaxTextBox.TabIndex = 5;
             // 
             // InputMinTextbox
             // 
-            this.InputMinTextbox.Location = new System.Drawing.Point(122, 38);
+            this.InputMinTextbox.Location = new System.Drawing.Point(90, 20);
             this.InputMinTextbox.Name = "InputMinTextbox";
             this.InputMinTextbox.Size = new System.Drawing.Size(125, 27);
             this.InputMinTextbox.TabIndex = 4;
             // 
             // GenerateInputButton
             // 
-            this.GenerateInputButton.Location = new System.Drawing.Point(211, 143);
+            this.GenerateInputButton.Location = new System.Drawing.Point(89, 119);
             this.GenerateInputButton.Name = "GenerateInputButton";
             this.GenerateInputButton.Size = new System.Drawing.Size(126, 29);
             this.GenerateInputButton.TabIndex = 3;
@@ -292,7 +296,7 @@ namespace DataMakerForms
             // InputStepLabel
             // 
             this.InputStepLabel.AutoSize = true;
-            this.InputStepLabel.Location = new System.Drawing.Point(38, 107);
+            this.InputStepLabel.Location = new System.Drawing.Point(47, 89);
             this.InputStepLabel.Name = "InputStepLabel";
             this.InputStepLabel.Size = new System.Drawing.Size(37, 20);
             this.InputStepLabel.TabIndex = 2;
@@ -301,7 +305,7 @@ namespace DataMakerForms
             // InputMaxLabel
             // 
             this.InputMaxLabel.AutoSize = true;
-            this.InputMaxLabel.Location = new System.Drawing.Point(38, 74);
+            this.InputMaxLabel.Location = new System.Drawing.Point(2, 56);
             this.InputMaxLabel.Name = "InputMaxLabel";
             this.InputMaxLabel.Size = new System.Drawing.Size(82, 20);
             this.InputMaxLabel.TabIndex = 1;
@@ -310,7 +314,7 @@ namespace DataMakerForms
             // InputMinLabel
             // 
             this.InputMinLabel.AutoSize = true;
-            this.InputMinLabel.Location = new System.Drawing.Point(38, 41);
+            this.InputMinLabel.Location = new System.Drawing.Point(6, 23);
             this.InputMinLabel.Name = "InputMinLabel";
             this.InputMinLabel.Size = new System.Drawing.Size(78, 20);
             this.InputMinLabel.TabIndex = 0;
@@ -332,7 +336,7 @@ namespace DataMakerForms
             // 
             // GenerateOutputButton
             // 
-            this.GenerateOutputButton.Location = new System.Drawing.Point(40, 662);
+            this.GenerateOutputButton.Location = new System.Drawing.Point(28, 672);
             this.GenerateOutputButton.Name = "GenerateOutputButton";
             this.GenerateOutputButton.Size = new System.Drawing.Size(120, 29);
             this.GenerateOutputButton.TabIndex = 7;
@@ -386,20 +390,9 @@ namespace DataMakerForms
             this.OutputMinLabel.TabIndex = 0;
             this.OutputMinLabel.Text = "Минимум";
             // 
-            // FunctionCheckBox
-            // 
-            this.FunctionCheckBox.AutoSize = true;
-            this.FunctionCheckBox.Location = new System.Drawing.Point(13, 152);
-            this.FunctionCheckBox.Name = "FunctionCheckBox";
-            this.FunctionCheckBox.Size = new System.Drawing.Size(144, 24);
-            this.FunctionCheckBox.TabIndex = 16;
-            this.FunctionCheckBox.Text = "Задать функцию";
-            this.FunctionCheckBox.UseVisualStyleBackColor = true;
-            this.FunctionCheckBox.CheckedChanged += new System.EventHandler(this.FunctionCheckBox_CheckedChanged);
-            // 
             // PlotButton
             // 
-            this.PlotButton.Location = new System.Drawing.Point(281, 662);
+            this.PlotButton.Location = new System.Drawing.Point(285, 672);
             this.PlotButton.Name = "PlotButton";
             this.PlotButton.Size = new System.Drawing.Size(120, 29);
             this.PlotButton.TabIndex = 23;
@@ -459,22 +452,59 @@ namespace DataMakerForms
             // 
             this.FunctionPanel.Controls.Add(this.FunctionLabel);
             this.FunctionPanel.Controls.Add(this.FunctionTextbox);
-            this.FunctionPanel.Location = new System.Drawing.Point(163, 147);
+            this.FunctionPanel.Location = new System.Drawing.Point(7, 142);
             this.FunctionPanel.Name = "FunctionPanel";
             this.FunctionPanel.Size = new System.Drawing.Size(234, 35);
             this.FunctionPanel.TabIndex = 25;
-            this.FunctionPanel.Visible = false;
             // 
             // DistribusionPanel
             // 
-            this.DistribusionPanel.Controls.Add(this.FunctionCheckBox);
+            this.DistribusionPanel.Controls.Add(this.autocorPannel);
+            this.DistribusionPanel.Controls.Add(this.autocorCheckbox);
             this.DistribusionPanel.Controls.Add(this.FunctionPanel);
             this.DistribusionPanel.Controls.Add(this.DistribusionGroupBox);
             this.DistribusionPanel.Location = new System.Drawing.Point(12, 113);
             this.DistribusionPanel.Name = "DistribusionPanel";
-            this.DistribusionPanel.Size = new System.Drawing.Size(409, 190);
+            this.DistribusionPanel.Size = new System.Drawing.Size(409, 217);
             this.DistribusionPanel.TabIndex = 26;
             this.DistribusionPanel.Visible = false;
+            // 
+            // autocorPannel
+            // 
+            this.autocorPannel.Controls.Add(this.autocorLabel);
+            this.autocorPannel.Controls.Add(this.autocorTextbox);
+            this.autocorPannel.Location = new System.Drawing.Point(7, 178);
+            this.autocorPannel.Name = "autocorPannel";
+            this.autocorPannel.Size = new System.Drawing.Size(234, 32);
+            this.autocorPannel.TabIndex = 26;
+            this.autocorPannel.Visible = false;
+            // 
+            // autocorLabel
+            // 
+            this.autocorLabel.AutoSize = true;
+            this.autocorLabel.Location = new System.Drawing.Point(8, 6);
+            this.autocorLabel.Name = "autocorLabel";
+            this.autocorLabel.Size = new System.Drawing.Size(27, 20);
+            this.autocorLabel.TabIndex = 18;
+            this.autocorLabel.Text = "u=";
+            // 
+            // autocorTextbox
+            // 
+            this.autocorTextbox.Location = new System.Drawing.Point(50, 3);
+            this.autocorTextbox.Name = "autocorTextbox";
+            this.autocorTextbox.Size = new System.Drawing.Size(176, 27);
+            this.autocorTextbox.TabIndex = 19;
+            // 
+            // autocorCheckbox
+            // 
+            this.autocorCheckbox.AutoSize = true;
+            this.autocorCheckbox.Location = new System.Drawing.Point(251, 142);
+            this.autocorCheckbox.Name = "autocorCheckbox";
+            this.autocorCheckbox.Size = new System.Drawing.Size(148, 24);
+            this.autocorCheckbox.TabIndex = 26;
+            this.autocorCheckbox.Text = "Автокорреляция";
+            this.autocorCheckbox.UseVisualStyleBackColor = true;
+            this.autocorCheckbox.CheckedChanged += new System.EventHandler(this.autocorCheckbox_CheckedChanged);
             // 
             // Form1
             // 
@@ -511,6 +541,8 @@ namespace DataMakerForms
             this.FunctionPanel.PerformLayout();
             this.DistribusionPanel.ResumeLayout(false);
             this.DistribusionPanel.PerformLayout();
+            this.autocorPannel.ResumeLayout(false);
+            this.autocorPannel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,7 +580,6 @@ namespace DataMakerForms
         private System.Windows.Forms.TextBox OutputMinTextbox;
         private System.Windows.Forms.Label OutputMaxLabel;
         private System.Windows.Forms.Label OutputMinLabel;
-        private System.Windows.Forms.CheckBox FunctionCheckBox;
         private System.Windows.Forms.Button PlotButton;
         private System.Windows.Forms.CheckBox SgnCorrCheckbox;
         private System.Windows.Forms.CheckBox DomainCheckbox;
@@ -557,6 +588,10 @@ namespace DataMakerForms
         private System.Windows.Forms.Label FunctionLabel;
         private System.Windows.Forms.Panel FunctionPanel;
         private System.Windows.Forms.Panel DistribusionPanel;
+        private System.Windows.Forms.CheckBox autocorCheckbox;
+        private System.Windows.Forms.Panel autocorPannel;
+        private System.Windows.Forms.Label autocorLabel;
+        private System.Windows.Forms.TextBox autocorTextbox;
     }
 }
 
